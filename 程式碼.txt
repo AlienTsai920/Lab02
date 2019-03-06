@@ -1,0 +1,73 @@
+int LED[] = {2, 3, 4, 5, 8, 10, 12, 14};
+int place = 0;
+
+void setup() {
+  for (int i = 0; i < 8; i++) {
+    pinMode(LED[i], OUTPUT);
+  }
+  pinMode(6, INPUT);
+}
+
+void loop() {
+  digitalWrite(6, HIGH);
+  
+  if (6)
+  {
+    for (int i = 0; i < 2; i++) {
+      for (int j = 0; j < 8; j++) {
+        digitalWrite(LED[j], LOW);
+      }
+      delay(100);
+      for (int j = 0; j < 8; j++) {
+        digitalWrite(LED[j], HIGH);
+      }
+      delay(100);
+    }
+    
+    for (; place < 8; place++) {
+      for (int i = 0; i < 8; i++) {
+        digitalWrite(LED[i], LOW);
+      }
+      digitalWrite(LED[place], HIGH);
+      delay(100);
+    }
+  
+    for (int i = 0; i < 2; i++) {
+      for (int j = 0; j < 8; j++) {
+        digitalWrite(LED[j], LOW);
+      }
+      delay(100);
+      for (int j = 0; j < 8; j++) {
+        digitalWrite(LED[j], HIGH);
+      }
+      delay(100);
+    }
+    
+    place--;
+    for (; place > 0; place--) {
+      for (int i = 0; i < 8; i++) {
+        digitalWrite(LED[i], LOW);
+      }
+      digitalWrite(LED[place], HIGH);
+      delay(100);
+    }
+  }
+  else
+  {
+    for (; place < 8; place++) {
+      for (int i = 0; i < 8; i++) {
+        digitalWrite(LED[i], LOW);
+      }
+      digitalWrite(LED[place], HIGH);
+      delay(100);
+    }
+    place--;
+    for (; place > 0; place--) {
+      for (int i = 0; i < 8; i++) {
+        digitalWrite(LED[i], LOW);
+      }
+      digitalWrite(LED[place], HIGH);
+      delay(100);
+    }
+  }
+}
